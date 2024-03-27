@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(mongodb_url);
+mongoose.connect("");
 
 const UserSchema = new mongoose.Schema({
   userName: String,

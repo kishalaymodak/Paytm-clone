@@ -46,6 +46,7 @@ router.post("/signup", async (req, res) => {
   });
 
   const userId = newUser._id;
+  const name = newUser.firstName;
 
   await Account.create({
     userId,
@@ -55,6 +56,7 @@ router.post("/signup", async (req, res) => {
   const token = jwt.sign(
     {
       userId,
+      name,
     },
     JWT_SECRET
   );
@@ -91,6 +93,7 @@ router.post("/signin", async (req, res) => {
     const token = jwt.sign(
       {
         userId: user._id,
+        name: user.firstName,
       },
       JWT_SECRET
     );
